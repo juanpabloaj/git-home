@@ -1,7 +1,7 @@
 #!/bin/bash
 # git home : go to repo url
 [[ $(git rev-parse --git-dir 2> /dev/null) ]] || exit
-origin=$(git remote -v  | grep origin | head -n 1 | tr " " "\n" | tr "\t" "\n" | grep .git | sed -e 's/\.git//')
+origin=$(git remote -v  | grep origin | head -n 1 | tr " " "\n" | tr "\t" "\n" | grep .git | sed -e 's/\.git$//')
 if [[ $origin == *@* ]];then 
 	origin=$(echo $origin | sed -e 's/\:/\//' -e 's/.*@/http:\/\//')
 fi
